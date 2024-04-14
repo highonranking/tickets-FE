@@ -32,7 +32,7 @@ export class SeatReservationComponent implements OnInit {
 
   // Fetch available seats from the server
   getAvailableSeats() {
-    this.http.get<boolean[]>('http://localhost:3000/seats').subscribe(
+    this.http.get<boolean[]>('https://tickets-be-vure.onrender.com/seats').subscribe(
       data => {
         this.availableSeats = data;
       },
@@ -49,7 +49,7 @@ export class SeatReservationComponent implements OnInit {
       return;
     }
 
-    this.http.post<any>('http://localhost:3000/reserve', { numSeats: this.numSeats }).subscribe(
+    this.http.post<any>('https://tickets-be-vure.onrender.com/reserve', { numSeats: this.numSeats }).subscribe(
       data => {
         this.message = data.message;
         this.bookedSeatNumbers = data.bookedSeatNumbers;
@@ -81,7 +81,7 @@ export class SeatReservationComponent implements OnInit {
 
   // Reset all seats
   resetSeats() {
-    this.http.post<any>('http://localhost:3000/reset', {}).subscribe(
+    this.http.post<any>('https://tickets-be-vure.onrender.com/reset', {}).subscribe(
       data => {
         const decoder = new TextDecoder();
         const message = decoder.decode(data);
