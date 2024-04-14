@@ -1,0 +1,37 @@
+<div class="container">
+    <h2 class="headi">Train Seat Reservation</h2>
+  
+    <div>
+      <label for="numSeats">Number of Seats (Max 7):</label>
+      <input type="number" [(ngModel)]="numSeats" name="numSeats" min="1" max="7">
+      <button class="btn" (click)="reserveSeats()">Reserve Seats</button>
+    </div>
+  
+    <div *ngIf="message" class="message">{{ message }}</div>
+  
+    <div class="seats-container">
+      <div
+        *ngFor="let seat of availableSeats; let i = index"
+        class="seat"
+        [ngClass]="{ 'booked': !seat, 'selected': isSelected(i + 1) }"
+        (click)="toggleSelection(i + 1)">
+        {{ i + 1 }}
+      </div>
+    </div>
+  
+    <div *ngIf="bookedSeatNumbers.length > 0" class="booked-seats">
+      <h3>Booked Seats:</h3>
+      <ul>
+        <li *ngFor="let seatNumber of bookedSeatNumbers">{{ seatNumber }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <button class="btn-reset" (click)="resetSeats()">Reset Seats
+    </button>
+  </div>
+  
+
+
+   

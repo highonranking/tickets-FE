@@ -1,0 +1,261 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .heading{}
+
+  .seats-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .seat {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .seat.selected {
+    background-color: #66bb6a; 
+  }
+  
+  .seat.booked {
+    background-color: #ffcccc; 
+  }
+  
+  .message {
+    margin-top: 20px;
+    color: red;
+  }
+  
+  .booked-seats {
+    margin-top: 20px;
+  }
+  
+  .booked-seats ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .booked-seats li {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #66bb6a; 
+    border-radius: 5px;
+    color: white;
+  }
+  
+
+  .container {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  div > div {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="number"] {
+    padding: 8px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .message {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .seats-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .seat {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .seat:hover {
+    background-color: #e9e9e9;
+  }
+  
+  .seat.selected {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .seat.booked {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .booked-seats {
+    margin-top: 20px;
+  }
+  
+  .booked-seats h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .booked-seats ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .booked-seats li {
+    margin-bottom: 5px;
+  }
+  
+
+  
+  
+  .btn {
+    margin: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    position: relative;
+    letter-spacing: 7px;
+    padding: 18px 30px;
+    background: transparent;
+    font-size: 18px;
+    color: white;
+  }
+  
+  .btn:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: -1%;
+    top: -5px;
+    background-color: #ee5253;
+    transform: skewX(30deg);
+    z-index: -1;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .btn:hover:before {
+    transform: skewX(0deg);
+    left: 50%;
+    top: 0;
+  }
+  
+  .btn:after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 51%;
+    top: 5px;
+    background-color: #0a3d62;
+    transform: skewX(30deg);
+    z-index: -1;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .btn:hover:after {
+    transform: skewX(0deg);
+    left: 0%;
+    top: 0;
+  }
+
+.btn-reset {
+    position: absolute;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 25px 50px;
+    background-color: white;
+    color: #777;
+    border-radius: 100px;
+    font-size: 18px;
+    transition: all 0.2s;
+  }
+  
+  .btn-reset:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 100px;
+    transition: all 0.4s;
+    z-index: -1;
+  }
+  
+  .btn-reset:hover:before {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+  }
+  
+  .btn-reset:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-reset:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
