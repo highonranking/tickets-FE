@@ -22,6 +22,8 @@ export class SeatReservationComponent implements OnInit {
   
   // Array to store booked seat numbers
   bookedSeatNumbers: number[] = [];
+  isLoading: boolean = false; 
+
 
   constructor(private http: HttpClient, private cdr: ChangeDetectorRef) { }
 
@@ -32,18 +34,22 @@ export class SeatReservationComponent implements OnInit {
 
   // Fetch available seats from the server
   getAvailableSeats() {
+    this.isLoading = true;
     this.http.get<boolean[]>('https://tickets-be-vure.onrender.com/seats').subscribe(
       data => {
         this.availableSeats = data;
+        this.isLoading = false;
       },
       error => {
         console.error('Error fetching available seats:', error);
+        this.isLoading = false;
       }
     );
   }
 
   // Reserve selected seats
   reserveSeats() {
+    this.isLoading = true;
     if (!this.numSeats || this.numSeats <= 0 || this.numSeats > 7) {
       this.message = 'Invalid number of seats';
       return;
@@ -55,15 +61,18 @@ export class SeatReservationComponent implements OnInit {
         this.bookedSeatNumbers = data.bookedSeatNumbers;
         this.getAvailableSeats(); // Refresh available seats after reservation
         this.selectedSeats = []; // Clear selected seats after reservation
+        this.isLoading = false;
       },
       error => {
         this.message = error.error.message;
+        this.isLoading = false; 
       }
     );
   }
 
   // Toggle seat selection
   toggleSelection(seatNumber: number) {
+    
     const index = this.selectedSeats.indexOf(seatNumber);
     if (index === -1) {
       if (this.selectedSeats.length < this.numSeats) {
@@ -81,6 +90,7 @@ export class SeatReservationComponent implements OnInit {
 
   // Reset all seats
   resetSeats() {
+    this.isLoading = true;
     this.http.post<any>('https://tickets-be-vure.onrender.com/reset', {}).subscribe(
       data => {
         const decoder = new TextDecoder();
@@ -90,9 +100,11 @@ export class SeatReservationComponent implements OnInit {
         this.selectedSeats = []; // Clear selected seats after reset
         this.bookedSeatNumbers = []; // Clear booked seats after reset
         this.cdr.detectChanges(); // Trigger change detection to update the UI
+        this.isLoading = false;
       },
       error => {
         this.message = error.error.message;
+        this.isLoading = false;
       }
     );
   }

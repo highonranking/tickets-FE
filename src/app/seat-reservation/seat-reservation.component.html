@@ -1,11 +1,15 @@
 <div class="container">
-    <h2 class="headi">Train Seat Reservation</h2>
+
+    <h2 class="heading">
+        <img src="assets/logo.png" alt="Unstop Logo" class="logo">
+    <span> Seat Reservation</span></h2>
   
     <div>
       <label for="numSeats">Number of Seats (Max 7):</label>
       <input type="number" [(ngModel)]="numSeats" name="numSeats" min="1" max="7">
       <button class="btn" (click)="reserveSeats()">Reserve Seats</button>
     </div>
+
   
     <div *ngIf="message" class="message">{{ message }}</div>
   
@@ -31,6 +35,7 @@
     <button class="btn-reset" (click)="resetSeats()">Reset Seats
     </button>
   </div>
+  <div class="loader" *ngIf="isLoading"></div>
 
   <div class="footer">
     <a target="_blank" class="foot" href="https://www.linkedin.com/in/highonranking/">LinkedIn</a>
